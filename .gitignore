@@ -4,3 +4,9 @@
 # __pycache__ and .pytest_cache
 /__pycache__
 /.pytest_cache
+
+# coverage
+.coverage
+
+# coverage reports
+/htmlcov
