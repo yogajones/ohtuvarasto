@@ -48,7 +48,7 @@ class TestVarasto(unittest.TestCase):
         saatu_maara = self.varasto.ota_varastosta(2)
 
         self.assertAlmostEqual(saatu_maara, 2)
-    
+
     def test_negatiivinen_ottaminen_ei_muuta_mitaan(self):
         self.varasto.lisaa_varastoon(3)
         self.assertAlmostEqual(self.varasto.ota_varastosta(-1), 0)
@@ -62,8 +62,9 @@ class TestVarasto(unittest.TestCase):
         # liian suuri otto palauttaa varaston saldon täsmälleen
         self.varasto.lisaa_varastoon(3)
         saldo_ennen_ottoa = self.varasto.saldo
-        self.assertAlmostEqual(self.varasto.ota_varastosta(8), saldo_ennen_ottoa)
-    
+        self.assertAlmostEqual(
+            self.varasto.ota_varastosta(8), saldo_ennen_ottoa)
+
     def test_ottaminen_lisaa_tilaa(self):
         self.varasto.lisaa_varastoon(8)
 
@@ -73,4 +74,5 @@ class TestVarasto(unittest.TestCase):
         self.assertAlmostEqual(self.varasto.paljonko_mahtuu(), 4)
 
     def test_(self):
-        self.assertAlmostEqual(self.varasto.__str__(), f"saldo = {self.varasto.saldo}, vielä tilaa {self.varasto.paljonko_mahtuu()}") 
+        self.assertAlmostEqual(self.varasto.__str__(
+        ), f"saldo = {self.varasto.saldo}, vielä tilaa {self.varasto.paljonko_mahtuu()}")
